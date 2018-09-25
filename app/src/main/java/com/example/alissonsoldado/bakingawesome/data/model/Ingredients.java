@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.model;
+package com.example.alissonsoldado.bakingawesome.data.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

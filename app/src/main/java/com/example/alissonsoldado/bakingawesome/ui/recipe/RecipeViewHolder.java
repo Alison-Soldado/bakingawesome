@@ -12,6 +12,6 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder {
 
     RecipeViewHolder(View itemView) {
         super(itemView);
-        this.textViewName = itemView.findViewById(R.id.item_recipe_text_name);
+        this.textViewName = itemView.findViewById(R.id.item_recipe_name);
     }
 }

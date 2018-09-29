@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Ingredients implements Parcelable {
+public class Ingredient implements Parcelable {
 
     @SerializedName("quantity")
     private float quantity;
@@ -14,7 +14,7 @@ public class Ingredients implements Parcelable {
     @SerializedName("ingredient")
     private String ingredient;
 
-    protected Ingredients(Parcel in) {
+    protected Ingredient(Parcel in) {
         quantity = in.readFloat();
         measure = in.readString();
         ingredient = in.readString();
@@ -32,15 +32,15 @@ public class Ingredients implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Ingredients> CREATOR = new Creator<Ingredients>() {
+    public static final Creator<Ingredient> CREATOR = new Creator<Ingredient>() {
         @Override
-        public Ingredients createFromParcel(Parcel in) {
-            return new Ingredients(in);
+        public Ingredient createFromParcel(Parcel in) {
+            return new Ingredient(in);
         }
 
         @Override
-        public Ingredients[] newArray(int size) {
-            return new Ingredients[size];
+        public Ingredient[] newArray(int size) {
+            return new Ingredient[size];
         }
     };
 

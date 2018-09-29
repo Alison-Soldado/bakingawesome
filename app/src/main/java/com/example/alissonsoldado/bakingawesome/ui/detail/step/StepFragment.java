@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.ui.step;
+package com.example.alissonsoldado.bakingawesome.ui.detail.step;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

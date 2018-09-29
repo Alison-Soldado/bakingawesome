@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.ui.recipe;
+package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

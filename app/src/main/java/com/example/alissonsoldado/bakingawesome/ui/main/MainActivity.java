@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.alissonsoldado.bakingawesome.R;
-import com.example.alissonsoldado.bakingawesome.ui.recipe.RecipeFragment;
+import com.example.alissonsoldado.bakingawesome.ui.main.recipe.RecipeFragment;
 
 public class MainActivity extends AppCompatActivity {
 

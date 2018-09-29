@@ -6,12 +6,18 @@ import android.widget.TextView;
 
 import com.example.alissonsoldado.bakingawesome.R;
 
-public class RecipeViewHolder extends RecyclerView.ViewHolder {
+public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView textViewName;
+    private RecipeAdapterListener recipeAdapterListener;
 
     RecipeViewHolder(View itemView) {
         super(itemView);
         this.textViewName = itemView.findViewById(R.id.item_recipe_name);
+    }
+
+    @Override
+    public void onClick(View v) {
+        v.setOnClickListener(this);
     }
 }

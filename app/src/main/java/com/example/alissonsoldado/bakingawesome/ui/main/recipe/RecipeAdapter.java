@@ -12,15 +12,13 @@ import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
 
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     private Context context;
-    private RecipeAdapterListener recipeAdapterListener;
     private List<Recipe> recipes;
 
-    RecipeAdapter(Context context, RecipeAdapterListener recipeAdapterListener, List<Recipe> recipes) {
+    RecipeAdapter(Context context, List<Recipe> recipes) {
         this.context = context;
-        this.recipeAdapterListener = recipeAdapterListener;
         this.recipes = recipes;
     }
 
@@ -44,9 +42,5 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder>{
     public void addItems(List<Recipe> recipes) {
         this.recipes = recipes;
         notifyDataSetChanged();
-    }
-
-    public interface RecipeAdapterListener {
-        void onItemClick(Recipe recipe);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,12 +16,13 @@ import android.widget.ProgressBar;
 
 import com.example.alissonsoldado.bakingawesome.R;
 import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
+import com.example.alissonsoldado.bakingawesome.ui.detail.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdapterListener {
+public class RecipeFragment extends Fragment implements RecipeAdapterListener {
 
     private RecyclerView recyclerViewRecipes;
     private ProgressBar progressBarRecipes;
@@ -47,7 +49,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdap
 
     private void initInstance() {
         recipeViewModel = ViewModelProviders.of(this).get(RecipeViewModel.class);
-        recipeAdapter = new RecipeAdapter(getContext(), this, recipes);
+        recipeAdapter = new RecipeAdapter(getContext(), recipes);
     }
 
     private void getListRecipes() {
@@ -78,6 +80,8 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.RecipeAdap
 
     @Override
     public void onItemClick(Recipe recipe) {
-
+        Intent intentDetail = new Intent(getContext(), DetailActivity.class);
+        intentDetail.putExtra("recipe", recipe);
+        startActivity(intentDetail);
     }
 }

@@ -9,6 +9,7 @@ import com.example.alissonsoldado.bakingawesome.R;
 public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView textViewName;
+    //TODO: Analisar a possibilidade de implementação do click aqui
     private RecipeAdapterListener recipeAdapterListener;
 
     RecipeViewHolder(View itemView) {

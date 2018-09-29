@@ -49,7 +49,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapterListener {
 
     private void initInstance() {
         recipeViewModel = ViewModelProviders.of(this).get(RecipeViewModel.class);
-        recipeAdapter = new RecipeAdapter(getContext(), recipes);
+        recipeAdapter = new RecipeAdapter(getContext(), this, recipes);
     }
 
     private void getListRecipes() {

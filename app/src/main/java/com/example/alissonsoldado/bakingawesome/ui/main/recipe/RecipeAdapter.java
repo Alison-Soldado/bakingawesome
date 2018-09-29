@@ -16,10 +16,12 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     private Context context;
     private List<Recipe> recipes;
+    private RecipeAdapterListener recipeAdapterListener;
 
-    RecipeAdapter(Context context, List<Recipe> recipes) {
+    RecipeAdapter(Context context, RecipeAdapterListener recipeAdapterListener, List<Recipe> recipes) {
         this.context = context;
         this.recipes = recipes;
+        this.recipeAdapterListener = recipeAdapterListener;
     }
 
     @NonNull
@@ -32,6 +34,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
         holder.textViewName.setText(recipes.get(position).getName());
+        holder.setClickListener(recipeAdapterListener);
+        holder.setRecipe(recipes.get(position));
     }
 
     @Override

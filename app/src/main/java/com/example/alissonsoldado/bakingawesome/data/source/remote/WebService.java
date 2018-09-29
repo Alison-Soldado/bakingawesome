@@ -11,5 +11,4 @@ public interface WebService {
 
     @GET("/topher/2017/May/59121517_baking/baking.json")
     Call<List<Recipe>> getRecipe();
-
 }

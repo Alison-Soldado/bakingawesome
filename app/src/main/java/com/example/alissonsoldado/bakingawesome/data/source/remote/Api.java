@@ -7,5 +7,4 @@ public class Api {
     public WebService getBankingService() {
         return CallApi.getClient(BuildConfig.BASE_URL).create(WebService.class);
     }
-
 }

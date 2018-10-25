@@ -5,22 +5,31 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.alissonsoldado.bakingawesome.data.model.Ingredient;
+import com.example.alissonsoldado.bakingawesome.data.model.Step;
 import com.example.alissonsoldado.bakingawesome.ui.detail.ingredient.IngredientFragment;
 import com.example.alissonsoldado.bakingawesome.ui.detail.step.StepFragment;
 
+import java.util.List;
+
 public class DetailAdapter extends FragmentPagerAdapter {
 
-    DetailAdapter(FragmentManager fragmentManager) {
+    private List<Step> steps;
+    private List<Ingredient> ingredients;
+
+    DetailAdapter(FragmentManager fragmentManager, List<Step> steps, List<Ingredient> ingredients) {
         super(fragmentManager);
+        this.steps = steps;
+        this.ingredients = ingredients;
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new IngredientFragment();
+                return StepFragment.newInstance(steps);
             case 1:
-                return new StepFragment();
+                return IngredientFragment.newInstance(ingredients);
             default:
                 return null;
         }
@@ -33,5 +42,5 @@ public class DetailAdapter extends FragmentPagerAdapter {
 
     @Nullable
     @Override
-    public CharSequence getPageTitle(int position) { return position == 0 ? "Ingredients" : "Steps"; }
+    public CharSequence getPageTitle(int position) { return position == 0 ? "Steps" : "Ingredients"; }
 }

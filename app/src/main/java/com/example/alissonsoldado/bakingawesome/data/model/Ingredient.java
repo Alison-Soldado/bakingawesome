@@ -14,7 +14,13 @@ public class Ingredient implements Parcelable {
     @SerializedName("ingredient")
     private String ingredient;
 
-    protected Ingredient(Parcel in) {
+    public Ingredient(float quantity, String measure, String ingredient) {
+        this.quantity = quantity;
+        this.measure = measure;
+        this.ingredient = ingredient;
+    }
+
+    Ingredient(Parcel in) {
         quantity = in.readFloat();
         measure = in.readString();
         ingredient = in.readString();

@@ -22,7 +22,16 @@ public class Recipe implements Parcelable {
     @SerializedName("image")
     private String image;
 
-    protected Recipe(Parcel in) {
+    public Recipe(long id, String name, List<Ingredient> ingredients, List<Step> steps, int servings, String image) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+        this.steps = steps;
+        this.servings = servings;
+        this.image = image;
+    }
+
+    Recipe(Parcel in) {
         id = in.readLong();
         name = in.readString();
         servings = in.readInt();

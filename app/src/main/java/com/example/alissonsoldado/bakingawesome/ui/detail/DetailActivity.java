@@ -35,8 +35,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
-        detailAdapter =
-                new DetailAdapter(getSupportFragmentManager(), recipe.getSteps(), recipe.getIngredients());
+        detailAdapter = new DetailAdapter(getSupportFragmentManager(), recipe.getSteps(), recipe.getIngredients());
         viewPagerDetail.setAdapter(detailAdapter);
     }
 

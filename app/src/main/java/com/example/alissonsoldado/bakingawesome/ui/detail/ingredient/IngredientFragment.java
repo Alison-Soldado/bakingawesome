@@ -1,12 +1,10 @@
 package com.example.alissonsoldado.bakingawesome.ui.detail.ingredient;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,7 +28,7 @@ public class IngredientFragment extends Fragment implements IngredientAdapterLis
     public static IngredientFragment newInstance(List<Ingredient> ingredients) {
         IngredientFragment ingredientFragment = new IngredientFragment();
         Bundle args = new Bundle();
-        args.putParcelable("ingredients", (Parcelable) ingredients);
+        args.putParcelableArrayList("ingredients", (ArrayList<? extends Parcelable>) ingredients);
         ingredientFragment.setArguments(args);
         return ingredientFragment;
     }
@@ -39,7 +37,7 @@ public class IngredientFragment extends Fragment implements IngredientAdapterLis
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            ingredients = getArguments().getParcelable("ingredients");
+            ingredients = getArguments().getParcelableArrayList("ingredients");
         }
     }
 

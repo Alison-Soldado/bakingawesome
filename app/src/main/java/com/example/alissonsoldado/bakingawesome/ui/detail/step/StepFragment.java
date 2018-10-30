@@ -22,7 +22,7 @@ public class StepFragment extends Fragment {
     public static StepFragment newInstance(List<Step> steps) {
         StepFragment stepFragment = new StepFragment();
         Bundle args = new Bundle();
-        args.putParcelable("steps", (Parcelable) steps);
+        args.putParcelableArrayList("steps", (ArrayList<? extends Parcelable>) steps);
         stepFragment.setArguments(args);
         return stepFragment;
     }
@@ -31,7 +31,7 @@ public class StepFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            steps = getArguments().getParcelable("steps");
+            steps = getArguments().getParcelableArrayList("steps");
         }
     }
 

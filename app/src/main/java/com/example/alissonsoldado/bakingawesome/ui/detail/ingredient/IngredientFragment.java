@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class IngredientFragment extends Fragment implements IngredientAdapterListener {
+public class IngredientFragment extends Fragment implements IngredientItemListener {
 
     private List<Ingredient> ingredients = new ArrayList<>();
     private RecyclerView recyclerViewIngredients;
@@ -62,12 +62,15 @@ public class IngredientFragment extends Fragment implements IngredientAdapterLis
         recyclerViewIngredients.getAdapter().notifyDataSetChanged();
     }
 
-    private void initInstance() {
-        ingredientAdapter = new IngredientAdapter(getContext(), this, ingredients);
+    private void initComponents(View view) {
+        recyclerViewIngredients = view.findViewById(R.id.fragment_ingredient_recycler_ingredients);
     }
 
-    private void initComponents(View view) {
-        recyclerViewIngredients = view.findViewById(R.id.fragment_ingredient_ingredients);
+    private void initInstance() {
+        List<Ingredient> ingredients1 = new ArrayList<>();
+        ingredients1.add(0, new Ingredient(4545F, "sdjdkafjkl", "ajhsdjkhasj"));
+        ingredients1.add(1, new Ingredient(4545F, "sdfs", "fdsag"));
+        ingredientAdapter = new IngredientAdapter(getContext(), this, ingredients1);
     }
 
     @Override

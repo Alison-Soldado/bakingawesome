@@ -16,9 +16,9 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientViewHolder
 
     private Context context;
     private List<Ingredient> ingredients;
-    private IngredientAdapterListener ingredientAdapterListener;
+    private IngredientItemListener ingredientAdapterListener;
 
-    IngredientAdapter(Context context, IngredientAdapterListener ingredientAdapterListener, List<Ingredient> ingredients) {
+    IngredientAdapter(Context context, IngredientItemListener ingredientAdapterListener, List<Ingredient> ingredients) {
         this.context = context;
         this.ingredients = ingredients;
         this.ingredientAdapterListener = ingredientAdapterListener;

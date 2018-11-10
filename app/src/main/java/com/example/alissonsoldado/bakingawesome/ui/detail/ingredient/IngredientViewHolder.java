@@ -8,10 +8,10 @@ import com.example.alissonsoldado.bakingawesome.R;
 
 public class IngredientViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView textViewQuantity;
-    public TextView textViewMeasure;
-    public TextView textViewIngredient;
-    private IngredientAdapterListener ingredientAdapterListener;
+    TextView textViewQuantity;
+    TextView textViewMeasure;
+    TextView textViewIngredient;
+    private IngredientItemListener ingredientAdapterListener;
 
     IngredientViewHolder(View itemView) {
         super(itemView);
@@ -21,7 +21,7 @@ public class IngredientViewHolder extends RecyclerView.ViewHolder implements Vie
         itemView.setOnClickListener(this);
     }
 
-    public void setClickListener(IngredientAdapterListener ingredientAdapterListener) {
+    void setClickListener(IngredientItemListener ingredientAdapterListener) {
         this.ingredientAdapterListener = ingredientAdapterListener;
     }
 

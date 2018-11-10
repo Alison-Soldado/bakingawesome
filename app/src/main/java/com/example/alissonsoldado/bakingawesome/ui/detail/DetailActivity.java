@@ -11,7 +11,6 @@ import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
 public class DetailActivity extends AppCompatActivity {
 
     private Recipe recipe;
-    private DetailAdapter detailAdapter;
     private ViewPager viewPagerDetail;
 
     @Override
@@ -35,7 +34,8 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void setupViewPager() {
-        detailAdapter = new DetailAdapter(getSupportFragmentManager(), recipe.getSteps(), recipe.getIngredients());
+        DetailAdapter detailAdapter =
+                new DetailAdapter(getSupportFragmentManager(), recipe);
         viewPagerDetail.setAdapter(detailAdapter);
     }
 

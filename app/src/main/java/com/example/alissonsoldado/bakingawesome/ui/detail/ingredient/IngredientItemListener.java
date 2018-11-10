@@ -1,5 +1,5 @@
 package com.example.alissonsoldado.bakingawesome.ui.detail.ingredient;
 
-public interface IngredientAdapterListener {
+public interface IngredientItemListener {
     void onItemClick();
 }

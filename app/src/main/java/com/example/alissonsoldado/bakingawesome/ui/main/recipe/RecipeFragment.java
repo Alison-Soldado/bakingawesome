@@ -80,7 +80,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapterListener {
 
     @Override
     public void onItemClick(Recipe recipe) {
-        Intent intentDetail = new Intent(getContext(), DetailActivity.class);
+        Intent intentDetail = new Intent(getActivity(), DetailActivity.class);
         intentDetail.putExtra("recipe", recipe);
         startActivity(intentDetail);
     }

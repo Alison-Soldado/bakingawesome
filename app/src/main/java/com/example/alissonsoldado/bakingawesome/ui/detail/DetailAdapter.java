@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.alissonsoldado.bakingawesome.data.model.Ingredient;
+import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
 import com.example.alissonsoldado.bakingawesome.data.model.Step;
 import com.example.alissonsoldado.bakingawesome.ui.detail.ingredient.IngredientFragment;
 import com.example.alissonsoldado.bakingawesome.ui.detail.step.StepFragment;
@@ -14,22 +15,20 @@ import java.util.List;
 
 public class DetailAdapter extends FragmentPagerAdapter {
 
-    private List<Step> steps;
-    private List<Ingredient> ingredients;
+    private Recipe recipe;
 
-    DetailAdapter(FragmentManager fragmentManager, List<Step> steps, List<Ingredient> ingredients) {
+    DetailAdapter(FragmentManager fragmentManager, Recipe recipe) {
         super(fragmentManager);
-        this.steps = steps;
-        this.ingredients = ingredients;
+        this.recipe = recipe;
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return StepFragment.newInstance(steps);
+                return StepFragment.newInstance(recipe.getSteps());
             case 1:
-                return IngredientFragment.newInstance(ingredients);
+                return IngredientFragment.newInstance(recipe.getIngredients());
             default:
                 return null;
         }

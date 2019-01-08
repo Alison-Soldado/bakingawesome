@@ -73,6 +73,10 @@ dependencies {
     implementation "android.arch.lifecycle:common-java8:${archLibVersion}"
     implementation "android.arch.lifecycle:extensions:${archLibVersion}"
 
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.3'
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.9.3'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.3'
+
     testImplementation "junit:junit:${junitLibVersion}"
 
     androidTestImplementation "com.android.support.test:runner:${runnerLibVersion}"

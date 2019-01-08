@@ -26,7 +26,8 @@
             android:parentActivityName=".ui.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-        <activity android:name=".ui.detail.step.DetailStepActivity"/>
+        <activity
+            android:name=".ui.detail.step.DetailStepActivity"/>
     </application>
 
 </manifest>

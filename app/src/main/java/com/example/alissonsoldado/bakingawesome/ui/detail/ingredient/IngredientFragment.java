@@ -1,7 +1,6 @@
 package com.example.alissonsoldado.bakingawesome.ui.detail.ingredient;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,19 +15,18 @@ import com.example.alissonsoldado.bakingawesome.R;
 import com.example.alissonsoldado.bakingawesome.data.model.Ingredient;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class IngredientFragment extends Fragment implements IngredientItemListener {
+public class IngredientFragment extends Fragment {
 
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private RecyclerView recyclerViewIngredients;
     private IngredientAdapter ingredientAdapter;
 
-    public static IngredientFragment newInstance(List<Ingredient> ingredients) {
+    public static IngredientFragment newInstance(ArrayList<Ingredient> ingredients) {
         IngredientFragment ingredientFragment = new IngredientFragment();
         Bundle args = new Bundle();
-        args.putParcelableArrayList("ingredients", (ArrayList<? extends Parcelable>) ingredients);
+        args.putParcelableArrayList("ingredients", ingredients);
         ingredientFragment.setArguments(args);
         return ingredientFragment;
     }
@@ -59,7 +57,6 @@ public class IngredientFragment extends Fragment implements IngredientItemListen
         recyclerViewIngredients.addItemDecoration(itemDecoration);
         recyclerViewIngredients.setHasFixedSize(true);
         recyclerViewIngredients.setAdapter(ingredientAdapter);
-        recyclerViewIngredients.getAdapter().notifyDataSetChanged();
     }
 
     private void initComponents(View view) {
@@ -67,14 +64,6 @@ public class IngredientFragment extends Fragment implements IngredientItemListen
     }
 
     private void initInstance() {
-        List<Ingredient> ingredients1 = new ArrayList<>();
-        ingredients1.add(0, new Ingredient(4545F, "sdjdkafjkl", "ajhsdjkhasj"));
-        ingredients1.add(1, new Ingredient(4545F, "sdfs", "fdsag"));
-        ingredientAdapter = new IngredientAdapter(getContext(), this, ingredients1);
-    }
-
-    @Override
-    public void onItemClick() {
-
+        ingredientAdapter = new IngredientAdapter(getContext(), ingredients);
     }
 }

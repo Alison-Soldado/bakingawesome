@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import com.example.alissonsoldado.bakingawesome.R;
 import com.example.alissonsoldado.bakingawesome.data.model.Step;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class StepAdapter extends RecyclerView.Adapter<StepViewHolder> {
 
     private Context context;
-    private List<Step> steps;
+    private ArrayList<Step> steps;
     private StepItemListener stepItemListener;
 
-    StepAdapter(Context context, StepItemListener stepItemListener, List<Step> steps) {
+    StepAdapter(Context context, StepItemListener stepItemListener, ArrayList<Step> steps) {
         this.context = context;
         this.steps = steps;
         this.stepItemListener = stepItemListener;
@@ -33,16 +33,14 @@ public class StepAdapter extends RecyclerView.Adapter<StepViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull StepViewHolder holder, int position) {
+        holder.textViewCompatNumber.setText(String.valueOf(steps.get(position).getId()));
+        holder.textViewCompatShortDescription.setText(steps.get(position).getShortDescription());
+        holder.setStep(steps.get(position));
         holder.setClickListener(stepItemListener);
     }
 
     @Override
     public int getItemCount() {
         return steps == null ? 0 : steps.size();
-    }
-
-    public void addItems(List<Step> steps) {
-        this.steps = steps;
-        notifyDataSetChanged();
     }
 }

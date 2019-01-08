@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import com.example.alissonsoldado.bakingawesome.R;
 import com.example.alissonsoldado.bakingawesome.data.model.Ingredient;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientViewHolder> {
 
     private Context context;
-    private List<Ingredient> ingredients;
-    private IngredientItemListener ingredientAdapterListener;
+    private ArrayList<Ingredient> ingredients;
 
-    IngredientAdapter(Context context, IngredientItemListener ingredientAdapterListener, List<Ingredient> ingredients) {
+    IngredientAdapter(Context context, ArrayList<Ingredient> ingredients) {
         this.context = context;
         this.ingredients = ingredients;
-        this.ingredientAdapterListener = ingredientAdapterListener;
     }
 
     @NonNull
@@ -36,16 +34,10 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientViewHolder
         holder.textViewQuantity.setText(String.valueOf(ingredients.get(position).getQuantity()));
         holder.textViewMeasure.setText(ingredients.get(position).getMeasure());
         holder.textViewIngredient.setText(ingredients.get(position).getIngredient());
-        holder.setClickListener(ingredientAdapterListener);
     }
 
     @Override
     public int getItemCount() {
         return ingredients == null ? 0 : ingredients.size();
-    }
-
-    public void addItems(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-        notifyDataSetChanged();
     }
 }

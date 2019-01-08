@@ -5,13 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.alissonsoldado.bakingawesome.data.model.Ingredient;
 import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
-import com.example.alissonsoldado.bakingawesome.data.model.Step;
 import com.example.alissonsoldado.bakingawesome.ui.detail.ingredient.IngredientFragment;
 import com.example.alissonsoldado.bakingawesome.ui.detail.step.StepFragment;
-
-import java.util.List;
 
 public class DetailAdapter extends FragmentPagerAdapter {
 

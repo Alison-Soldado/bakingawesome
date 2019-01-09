@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
+package com.example.alissonsoldado.bakingawesome.ui.recipe;
 
 import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
 

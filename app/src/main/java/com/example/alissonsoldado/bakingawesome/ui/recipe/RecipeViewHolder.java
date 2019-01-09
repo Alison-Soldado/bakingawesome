@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
+package com.example.alissonsoldado.bakingawesome.ui.recipe;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,7 +9,7 @@ import com.example.alissonsoldado.bakingawesome.data.model.Recipe;
 
 public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView textViewName;
+    TextView textViewName;
     private RecipeAdapterListener recipeAdapterListener;
     private Recipe recipe;
 
@@ -19,7 +19,7 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.On
         itemView.setOnClickListener(this);
     }
 
-    public void setClickListener(RecipeAdapterListener recipeAdapterListener){
+    void setClickListener(RecipeAdapterListener recipeAdapterListener){
         this.recipeAdapterListener = recipeAdapterListener;
     }
 

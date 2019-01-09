@@ -1,4 +1,4 @@
-package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
+package com.example.alissonsoldado.bakingawesome.ui.recipe;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -43,7 +43,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
         return recipes == null ? 0 : recipes.size();
     }
 
-    public void addItems(List<Recipe> recipes) {
+    void addItems(List<Recipe> recipes) {
         this.recipes = recipes;
         notifyDataSetChanged();
     }

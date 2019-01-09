@@ -1,17 +1,13 @@
-package com.example.alissonsoldado.bakingawesome.ui.main.recipe;
+package com.example.alissonsoldado.bakingawesome.ui.recipe;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.alissonsoldado.bakingawesome.R;
@@ -22,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class RecipeFragment extends Fragment implements RecipeAdapterListener {
+public class RecipeActivity extends AppCompatActivity implements RecipeAdapterListener {
 
     private RecyclerView recyclerViewRecipes;
     private ProgressBar progressBarRecipes;
@@ -30,26 +26,25 @@ public class RecipeFragment extends Fragment implements RecipeAdapterListener {
     private RecipeAdapter recipeAdapter;
     private List<Recipe> recipes = new ArrayList<>();
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recipe, container, false);
-        initComponent(view);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_recipe);
+        initComponent();
         initInstance();
-        getListRecipes();
         setupRecyclerView();
+        getListRecipes();
         initObservers();
-        return view;
     }
 
-    private void initComponent(View view) {
-        recyclerViewRecipes = view.findViewById(R.id.fragment_recipe_recycler_recipes);
-        progressBarRecipes = view.findViewById(R.id.fragment_recipe_progress_recipes);
+    private void initComponent() {
+        recyclerViewRecipes = findViewById(R.id.activity_recipe_recycler_recipes);
+        progressBarRecipes = findViewById(R.id.activity_recipe_progress_recipes);
     }
 
     private void initInstance() {
         recipeViewModel = ViewModelProviders.of(this).get(RecipeViewModel.class);
-        recipeAdapter = new RecipeAdapter(getContext(), this, recipes);
+        recipeAdapter = new RecipeAdapter(this, this, recipes);
     }
 
     private void getListRecipes() {
@@ -59,10 +54,10 @@ public class RecipeFragment extends Fragment implements RecipeAdapterListener {
     }
 
     private void setupRecyclerView() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerViewRecipes.setLayoutManager(linearLayoutManager);
         DividerItemDecoration itemDecoration =
-                new DividerItemDecoration(Objects.requireNonNull(getContext()), DividerItemDecoration.VERTICAL);
+                new DividerItemDecoration(Objects.requireNonNull(this), DividerItemDecoration.VERTICAL);
         recyclerViewRecipes.addItemDecoration(itemDecoration);
         recyclerViewRecipes.setHasFixedSize(true);
         recyclerViewRecipes.setAdapter(recipeAdapter);
@@ -80,7 +75,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapterListener {
 
     @Override
     public void onItemClick(Recipe recipe) {
-        Intent intentDetail = new Intent(getActivity(), DetailActivity.class);
+        Intent intentDetail = new Intent(this, DetailActivity.class);
         intentDetail.putExtra("recipe", recipe);
         startActivity(intentDetail);
     }
